@@ -1,2 +1,9 @@
 streamlit
 numpy
+faiss-cpu
+sentence-transformers
+openai
+langchain
+google-generativeai
+pandas
+PyMuPDF
