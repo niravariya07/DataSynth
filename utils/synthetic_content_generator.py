@@ -1,3 +1,4 @@
+from io import StringIO
 import os
 import pandas as pd
 from typing import List, Dict
@@ -21,15 +22,10 @@ def data_generator_llm(
     Return ONLY the dataset in CSV format without any extra text.
     """
 
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0.7
-    )
+    model = genai.GenerativeModel("gemini-1.5-flash")
+    response = model.generate_content(prompt)
 
     csv_output = response.choices[0].message.content.strip()
-
-    from io import StringIO
     df = pd.read_csv(StringIO(csv_output))
 
     return df
