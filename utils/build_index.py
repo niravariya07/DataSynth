@@ -18,5 +18,3 @@ def build_index(rag_entries: List[Dict[str, str]]) -> Tuple[faiss.IndexFlatL2, D
     mapping = {i: entry for i, entry in enumerate(rag_entries)}
 
     return index, mapping
-
-
