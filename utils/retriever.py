@@ -22,7 +22,7 @@ def retrieve_context(
 
 
 if __name__ == "__main__":
-    from build_index import build_index_dynamic
+    from build_index import build_index
 
     # Test with sample RAG content
     rag_data = [
@@ -31,7 +31,7 @@ if __name__ == "__main__":
         {"name": "Name", "description": "Full name of the person"},
     ]
 
-    index, mapping = build_index_dynamic(rag_data)
+    index, mapping = build_index(rag_data)
     query = "customer's email"
     matches = retrieve_context(query, index, mapping, top_k=2)
     print("Query:", query)
