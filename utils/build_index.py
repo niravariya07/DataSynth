@@ -18,3 +18,14 @@ def build_index(rag_entries: List[Dict[str, str]]) -> Tuple[faiss.IndexFlatL2, D
     mapping = {i: entry for i, entry in enumerate(rag_entries)}
 
     return index, mapping
+
+
+if __name__ == "__main__":
+    # Quick test
+    sample_rag = [
+        {"name": "Age", "description": "The age of the person in years"},
+        {"name": "Email", "description": "The email address of the customer"},
+    ]
+    idx, mapping = build_index(sample_rag)
+    print(f"Index size: {idx.ntotal}")
+    print("Mapping:", mapping)
