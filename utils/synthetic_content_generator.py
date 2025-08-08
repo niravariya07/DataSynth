@@ -1,8 +1,11 @@
+import os
 import pandas as pd
 from typing import List, Dict
 from openai import OpenAI
+from dotenv import load_dotenv
 
-client = OpenAI()
+load_dotenv()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def data_generator_llm(
         columns: List[Dict[str, str]],
