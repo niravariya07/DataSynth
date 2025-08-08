@@ -13,4 +13,9 @@ def retrieve_context(
 
     distances, indices = index.search(query_vector, top_k)
 
-    
+    results = []
+    for idx in indices[0]:
+        if idx in mapping:
+            results.append(mapping[idx])
+
+    return results
