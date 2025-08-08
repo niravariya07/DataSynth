@@ -1,11 +1,11 @@
 import os
 import pandas as pd
 from typing import List, Dict
-from openai import OpenAI
+import google.generativeai as genai
 from dotenv import load_dotenv
 
 load_dotenv()
-client = OpenAI(api_key=os.getenv("GEMINI_API_KEY"))
+client = genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 def data_generator_llm(
         columns: List[Dict[str, str]],
