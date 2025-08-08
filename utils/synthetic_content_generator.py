@@ -5,7 +5,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=os.getenv("GEMINI_API_KEY"))
 
 def data_generator_llm(
         columns: List[Dict[str, str]],
