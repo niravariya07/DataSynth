@@ -25,7 +25,7 @@ def data_generator_llm(
     model = genai.GenerativeModel("gemini-1.5-flash")
     response = model.generate_content(prompt)
 
-    csv_output = response.choices[0].message.content.strip()
+    csv_output = response.text.strip()
     df = pd.read_csv(StringIO(csv_output))
 
     return df
@@ -36,6 +36,7 @@ if __name__ == "__main__":
         {"name": "Name", "description": "Full name of the customer"},
         {"name": "Email", "description": "Email address in standard format"},
         {"name": "Age", "description": "Age in years (integer)"},
+        {"name": "Gender", "description": "Gender of the customer (Male or Female)"}
     ]
 
     df = data_generator_llm(sample_columns, 5)
