@@ -19,4 +19,3 @@ def retrieve_context(
             results.append(mapping[idx])
 
     return results
-
