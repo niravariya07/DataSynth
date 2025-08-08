@@ -9,4 +9,3 @@ def get_embedding(text: str) -> np.ndarray:
 
 def get_embeddings(texts: List[str]) -> np.ndarray:
     return model.encode(texts, convert_to_numpy=True)
-
