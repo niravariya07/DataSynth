@@ -19,3 +19,20 @@ def retrieve_context(
             results.append(mapping[idx])
 
     return results
+
+
+if __name__ == "__main__":
+    from build_index import build_index_dynamic
+
+    # Test with sample RAG content
+    rag_data = [
+        {"name": "Age", "description": "Age of the person in years"},
+        {"name": "Email", "description": "Email address of the person"},
+        {"name": "Name", "description": "Full name of the person"},
+    ]
+
+    index, mapping = build_index_dynamic(rag_data)
+    query = "customer's email"
+    matches = retrieve_context(query, index, mapping, top_k=2)
+    print("Query:", query)
+    print("Matches:", matches)
