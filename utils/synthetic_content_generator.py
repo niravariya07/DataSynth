@@ -29,15 +29,3 @@ def data_generator_llm(
     df = pd.read_csv(StringIO(csv_output))
 
     return df
-
-if __name__ == "__main__":
-    # Example usage
-    sample_columns = [
-        {"name": "Name", "description": "Full name of the customer"},
-        {"name": "Email", "description": "Email address in standard format"},
-        {"name": "Age", "description": "Age in years (integer)"},
-        {"name": "Gender", "description": "Gender of the customer (Male or Female)"}
-    ]
-
-    df = data_generator_llm(sample_columns, 5)
-    print(df)
