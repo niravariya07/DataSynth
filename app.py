@@ -18,3 +18,23 @@ for i in range(num_columns):
 
 
 num_rows = st.number_input("Number of rows", min_value=1, max_value=1000, value=10)
+
+if st.button("Generate Dataset"):
+    if not columns:
+        st.error("Please provide all column names and descriptions.")
+    else:
+        with st.spinner("Generating synthetic data..."):
+            try:
+                df = data_generator_llm(columns, num_rows)
+                st.success("Dataset generated successfully!")
+                st.dataframe(df)
+
+                csv = df.to_csv(index=False).encode("utf-8")
+                st.download_button(
+                    label="Download CSV",
+                    data=csv,
+                    file_name="mock_dataset.csv",
+                    mime="text/csv",
+                )
+            except Exception as e:
+                st.error("Error: {str(e)}")
