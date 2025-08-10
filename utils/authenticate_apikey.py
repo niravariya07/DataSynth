@@ -22,3 +22,9 @@ def authenticate():
         "Enter your Gemini API key (leave blank if you don't have one)",
         type="password"
     )
+
+    if api_key_input:
+        st.session_state.api_key = api_key_input
+        st.session_state.auth_passed = True
+        st.success("API key accepted! You can now use DataSynth.")
+        st.rerun()
