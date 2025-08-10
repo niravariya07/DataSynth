@@ -17,3 +17,8 @@ def authenticate():
 
     st.title("DataSynth Authentication")
     st.write("To generate datasets, you need a Gemini API key.")
+
+    api_key_input = st.text_input(
+        "Enter your Gemini API key (leave blank if you don't have one)",
+        type="password"
+    )
