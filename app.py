@@ -10,6 +10,7 @@ if not authenticate():
 st.title("DataSynth")
 st.subheader("Creates synthetic datasets in seconds")
 
+
 num_columns = st.number_input("Number of columns", min_value=1, max_value=20, value=3)
 columns = []
 for i in range(num_columns):
