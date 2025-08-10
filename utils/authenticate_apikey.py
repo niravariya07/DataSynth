@@ -40,3 +40,5 @@ def authenticate():
                 st.rerun()
             else:
                 st.error("Free usage limit reached. Please enter your own API key.")
+
+    return st.session_state.auth_passed
