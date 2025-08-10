@@ -34,3 +34,6 @@ def authenticate():
         if st.button("Use Owner's API key"):
             if st.session_state.free_users < max_free_users:
                 st.session_state.api_key = owner_api_key
+                st.session_state.free_uses += 1
+                st.session_state.auth_passed = True
+                
