@@ -1,8 +1,11 @@
 import streamlit as st
 from utils.synthetic_content_generator import data_generator_llm
+from utils.authenticate_apikey import authenticate
 
 st.set_page_config(page_title="DataSynth", layout="centered")
 
+if not authenticate():
+    st.stop()
 st.title("DataSynth")
 st.subheader("Creates synthetic datasets in seconds")
 
