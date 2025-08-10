@@ -10,7 +10,7 @@ max_free_users = 5
 def authenticate():
     if "auth_passed" not in st.session_state:
         st.session_state.auth_passed = False
-    if "free_uses" not in st.session_state:
+    if "free_users" not in st.session_state:
         st.session_state.free_users = 0
     if "api_key" not in st.session_state:
         st.session_state.api_key = None
