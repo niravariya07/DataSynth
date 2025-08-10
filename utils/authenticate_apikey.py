@@ -36,4 +36,7 @@ def authenticate():
                 st.session_state.api_key = owner_api_key
                 st.session_state.free_uses += 1
                 st.session_state.auth_passed = True
-                
+                st.success(f"Using owner's API key (Usage {st.session_state.free_uses}/{max_free_users})")
+                st.rerun()
+            else:
+                st.error("Free usage limit reached. Please enter your own API key.")
