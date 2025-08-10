@@ -4,12 +4,12 @@ from utils.authenticate_apikey import authenticate
 
 st.set_page_config(page_title="DataSynth", layout="centered")
 
-st.title("DataSynth")
-st.subheader("Creates synthetic datasets in seconds")
-
 if not authenticate():
     st.stop()
     
+st.title("DataSynth")
+st.subheader("Creates synthetic datasets in seconds")
+
 num_columns = st.number_input("Number of columns", min_value=1, max_value=20, value=3)
 
 columns = []
