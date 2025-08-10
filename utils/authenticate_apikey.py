@@ -15,6 +15,9 @@ def authenticate():
     if "api_key" not in st.session_state:
         st.session_state.api_key = None
 
+    if st.session_state.auth_passed:
+        return True
+    
     st.title("DataSynth Authentication")
     st.write("To generate datasets, you need a Gemini API key.")
 
