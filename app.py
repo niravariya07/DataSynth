@@ -35,7 +35,7 @@ if st.button("Generate Dataset"):
                 csv = df.to_csv(index=False).encode("utf-8")
                 st.download_button(
                     label="Download CSV",
-                    data=df.to_csv(index=False),
+                    data=csv,
                     file_name="synthetic_dataset.csv",
                     mime="text/csv",
                 )
