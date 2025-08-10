@@ -6,7 +6,7 @@ st.set_page_config(page_title="DataSynth", layout="centered")
 
 if not authenticate():
     st.stop()
-    
+
 st.title("DataSynth")
 st.subheader("Creates synthetic datasets in seconds")
 
@@ -35,8 +35,8 @@ if st.button("Generate Dataset"):
                 csv = df.to_csv(index=False).encode("utf-8")
                 st.download_button(
                     label="Download CSV",
-                    data=csv,
-                    file_name="mock_dataset.csv",
+                    data=df.to_csv(index=False),
+                    file_name="synthetic_dataset.csv",
                     mime="text/csv",
                 )
             except Exception as e:
