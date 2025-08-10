@@ -28,3 +28,9 @@ def authenticate():
         st.session_state.auth_passed = True
         st.success("API key accepted! You can now use DataSynth.")
         st.rerun()
+
+    else:
+        st.info(f"You can use the owner's API key up to {max_free_users} times for free..")
+        if st.button("Use Owner's API key"):
+            if st.session_state.free_users < max_free_users:
+                st.session_state.api_key = owner_api_key
