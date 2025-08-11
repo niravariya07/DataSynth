@@ -68,3 +68,6 @@ DataSynth can go beyond plain data generation - by retrieving relevant context f
 3. **AI Generation**  
    - Gemini generates the dataset in CSV format.  
    - Data is parsed into a Pandas DataFrame.  
+
+4. **Download**  
+   - User can instantly download the generated dataset.  
