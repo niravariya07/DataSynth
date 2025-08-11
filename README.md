@@ -53,3 +53,7 @@ DataSynth can go beyond plain data generation - by retrieving relevant context f
     ├── README.md # Documentation
     └── .env # API keys & config
 
+
+## ⚙️ How It Works
+
+**Without RAG (Basic Mode)**  
