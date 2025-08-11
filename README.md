@@ -57,3 +57,6 @@ DataSynth can go beyond plain data generation - by retrieving relevant context f
 ## ⚙️ How It Works
 
 **Without RAG (Basic Mode)**  
+1. **User Authentication**  
+   - User enters their own Gemini API key.  
+   - If no key is provided, the system offers a fallback key (max 5 uses).  
