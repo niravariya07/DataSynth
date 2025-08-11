@@ -38,4 +38,4 @@ if st.button("Generate Dataset"):
                     mime="text/csv",
                 )
             except Exception as e:
-                st.error("Error: {str(e)}")
+                st.error(f"Error: {str(e)}")
