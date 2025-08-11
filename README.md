@@ -14,3 +14,6 @@ In AI and Data engineering,synthetic data is a powerful tool for:
 
 **With RAG integration**
 DataSynth can go beyond plain data generation - by retrieving relevant context from stored documents, it can create **domain-specific synthetic datasets**.
+- Generating medical trial datasets informed by real-world schema descriptions
+- Producing financial reports based on retrieved industry formats
+
