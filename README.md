@@ -28,3 +28,7 @@ DataSynth can go beyond plain data generation - by retrieving relevant context f
 | **io** | Built-in | String buffer for CSV handling |
 | **numpy** | 1.26.0 | Array & numerical ops for dataset processing |
 | **faiss-cpu** | 1.8.0 | Vector database for RAG |
+| **langchain** | ^0.2.10 | RAG orchestration & prompt management |
+| **langchain-community** | ^0.2.7 | Community integrations for LangChain |
+| **sentence-transformers** | ^2.2.2 | Embedding generation for retrieval |
+
