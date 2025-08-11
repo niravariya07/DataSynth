@@ -60,3 +60,7 @@ DataSynth can go beyond plain data generation - by retrieving relevant context f
 1. **User Authentication**  
    - User enters their own Gemini API key.  
    - If no key is provided, the system offers a fallback key (max 5 uses).  
+
+2. **Dataset Specification**  
+   - User specifies column names & descriptions.  
+   - User enters the desired number of rows.  
