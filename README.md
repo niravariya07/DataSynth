@@ -12,3 +12,9 @@ mock dataset for you.
 - **Streamlit UI** - Simple, browser-based interface.
 - **Download as CSV** - Save generated data in one click.
 
+## Tech Stack
+- Python 3.10+
+- Streamlit-UI
+- Google Generative AI (Gemini) - Dataset generation
+- dotenv-Environment variable management
+- Retrieval Augmented Generation
