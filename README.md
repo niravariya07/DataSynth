@@ -1,6 +1,6 @@
 # DataSynth
 
-DataSynth is an AI-powered synthetic dataset generator that can dynamically create datasets based on **user-specified columns and row counts**.  
+DataSynth is an AI-power*ed synthetic dataset generator that can dynamically create datasets based on **user-specified columns and row counts**.  
 It leverages **Google’s Gemini API** for text generation, and is designed with an architecture that supports **Retrieval-Augmented Generation (RAG)** for richer, domain-specific dataset generation.
 
 ## Live App
@@ -23,4 +23,8 @@ DataSynth can go beyond plain data generation - by retrieving relevant context f
 |---------|---------|---------|
 | **streamit** | 1.36.0 | Web app interface |
 | **pandas** | 2.2.2 | Data handling |
-|
+| **google-generativeai** | 0.3.0 | Access Gemini API |
+| **python-dotenv** | 1.0.1 | Load environment variables |
+| **io** | Built-in | String buffer for CSV handling |
+| **numpy** | 1.26.0 | Array & numerical ops for dataset processing |
+| **faiss-cpu** | 1.8.0 | Vector database for RAG |
