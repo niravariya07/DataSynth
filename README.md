@@ -64,3 +64,7 @@ DataSynth can go beyond plain data generation - by retrieving relevant context f
 2. **Dataset Specification**  
    - User specifies column names & descriptions.  
    - User enters the desired number of rows.  
+
+3. **AI Generation**  
+   - Gemini generates the dataset in CSV format.  
+   - Data is parsed into a Pandas DataFrame.  
