@@ -17,3 +17,10 @@ DataSynth can go beyond plain data generation - by retrieving relevant context f
 - Generating medical trial datasets informed by real-world schema descriptions
 - Producing financial reports based on retrieved industry formats
 
+## Dependencies
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| **streamit** | 1.36.0 | Web app interface |
+| **pandas** | 2.2.2 | Data handling |
+|
