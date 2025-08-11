@@ -54,7 +54,7 @@ DataSynth can go beyond plain data generation - by retrieving relevant context f
     └── .env # API keys & config
 
 
-## ⚙️ How It Works
+## How It Works
 
 **Without RAG (Basic Mode)**  
 1. **User Authentication**  
