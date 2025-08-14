@@ -1,9 +1,11 @@
 import streamlit as st
 from utils.synthetic_content_generator import data_generator_llm
 from utils.authenticate_apikey import authenticate
+from utils.build_index import build_index
 
 st.set_page_config(page_title="DataSynth", layout="centered")
 
+retriever = build_index()
 if not authenticate():
     st.stop()
 
