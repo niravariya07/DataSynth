@@ -1,7 +1,8 @@
 import faiss
 import numpy as np
 from typing import List, Tuple, Dict
-from utils.embedder import get_embeddings
+
+from embedder import get_embeddings
 
 def build_index(rag_entries: List[Dict[str, str]]) -> Tuple[faiss.IndexFlatL2, Dict[int, Dict[int,Dict[str, str]]]]:
     if not rag_entries:
