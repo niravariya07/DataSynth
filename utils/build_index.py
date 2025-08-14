@@ -37,3 +37,5 @@ def build_index(
 
     index = faiss.IndexFlatL2(dim)
     index.add(np.array(embeddings, dtype=np.float32))
+
+    mapping = {i: entry for i, entry in enumerate(source_entries)}
