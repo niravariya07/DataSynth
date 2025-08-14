@@ -32,4 +32,7 @@ def build_index(
     
     texts = [f"{col['name']}: {col['description']}" for col in source_entries]
 
+    embeddings = get_embeddings(texts)
+    dim = embeddings.shape[1]
+
     
