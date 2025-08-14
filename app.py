@@ -29,6 +29,8 @@ if st.button("Generate Dataset"):
     else:
         with st.spinner("Generating synthetic data..."):
             try:
+                index, mapping = build_index(columns)
+                
                 df = data_generator_llm(columns, num_rows)
                 st.success("Dataset generated successfully!")
                 st.dataframe(df)
