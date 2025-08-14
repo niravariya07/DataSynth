@@ -5,3 +5,7 @@ from sentence_transformers import SentenceTransformer
 model_name = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 save_path = "./models/all-MiniLM-L6-v2"
 
+model = SentenceTransformer(model_name)
+model.save(save_path)
+
+print(f"Model saved locally at: {save_path}")
