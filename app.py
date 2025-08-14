@@ -6,6 +6,7 @@ from utils.build_index import build_index
 st.set_page_config(page_title="DataSynth", layout="centered")
 
 retriever = build_index()
+
 if not authenticate():
     st.stop()
 
