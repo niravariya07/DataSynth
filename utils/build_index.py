@@ -1,4 +1,4 @@
-from embedder import get_embeddings
+from .embedder import get_embedding_array
 import faiss
 import numpy as np
 from typing import List, Tuple, Dict, Union
@@ -16,7 +16,7 @@ def build_index(
     
     texts = [f"{col['name']}: {col['description']}" for col in source_entries]
 
-    embeddings = get_embeddings(texts)
+    embeddings = get_embedding_array(texts)
     dim = embeddings.shape[1]
 
     index = faiss.IndexFlatL2(dim)

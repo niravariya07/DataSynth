@@ -1,8 +1,7 @@
 import faiss
 import numpy as np
 from typing import Dict, List, Tuple
-from embedder import get_embedding
-
+from .embedder import get_embedding
 def retrieve_context(
         query: str,
         index: faiss.IndexFlatL2,
