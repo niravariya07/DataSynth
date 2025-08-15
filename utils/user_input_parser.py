@@ -24,4 +24,8 @@ def user_input_parser(raw_columns: List[str], raw_row_count: int) -> UserInput:
     
     parsed_columns = []
     for col in raw_columns:
+        parts = col.split(":")
+        name = parts[0].strip()
+        dtype = parts[1].strip().lower() if len(parts) > 1 else "string"
+
         
