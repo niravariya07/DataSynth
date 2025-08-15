@@ -21,4 +21,6 @@ def build_faiss_index(columns: List[str]) -> None:
     index = faiss.IndexFlatL2(dim)
     index.add(embeddings)
 
+    faiss.write_index(index, str(index_file))
+
     
