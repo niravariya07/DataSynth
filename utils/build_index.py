@@ -23,4 +23,5 @@ def build_faiss_index(columns: List[str]) -> None:
 
     faiss.write_index(index, str(index_file))
 
-    
+    with open(metadata_file, "wb") as f:
+        pickle.dump(all_chunks, f)
