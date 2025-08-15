@@ -4,17 +4,20 @@ import pandas as pd
 from typing import List, Dict
 import google.generativeai as genai
 from dotenv import load_dotenv
+from .user_input_parser import user_input_parser
 
 load_dotenv()
-client = genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 def data_generator_llm(
-        columns: List[Dict[str, str]],
+        columns: List[str],
         num_rows: int
 ) -> pd.DataFrame:
     
+    parsed_columns, num_rows = user_input_parser(columns, num_rows)
+    
     col_descriptions = "\n".join(
-        [f"{col['name']}: {col['description']}" for col in columns]
+        [f"{col['name']}: {col['type_hint'] or 'string'}" for col in parsed_columns]
     )
 
     prompt = f"""You are a data generator. Create a synthetic dataset with {num_rows} rows and the following columns:
