@@ -1,4 +1,4 @@
-from .embedder import get_embedding_array
+from .embedder import get_embedding_array, get_embedding
 from .chunks import chunk_text
 import faiss
 import pickle
@@ -14,5 +14,11 @@ def build_faiss_index(columns: List[str]) -> None:
     for col in columns:
         chunk = chunk_text(col)
         all_chunks.extend(chunk)
+
+    embeddings = get_embedding(all_chunks)
+
+    dim = embeddings.shape[1]
+    index = faiss.IndexFlatL2(dim)
+    index.add(embeddings)
 
     
