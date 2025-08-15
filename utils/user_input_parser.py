@@ -28,4 +28,9 @@ def user_input_parser(raw_columns: List[str], raw_row_count: int) -> UserInput:
         name = parts[0].strip()
         dtype = parts[1].strip().lower() if len(parts) > 1 else "string"
 
+        if dtype not in ["string", "int", "float", "bool", "date"]:
+            raise ValueError(f"C'mon type valid data type for column '{name}': {dtype}")
         
+        parsed_columns.append(ColumnSpec(name=name, dtype=dtype))
+
+    return UserInput(columns=parsed_columns, row_count=raw_row_count)
