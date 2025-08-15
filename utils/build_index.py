@@ -6,4 +6,13 @@ from pathlib import Path
 import numpy as np
 from typing import List, Tuple, Dict, Union
 
-def build_index()
+index_file = Path("faiss_index.index")
+metadata_file = Path("metadata.pkl")
+
+def build_faiss_index(columns: List[str]) -> None:
+    all_chunks: List[str] = []
+    for col in columns:
+        chunk = chunk_text(col)
+        all_chunks.extend(chunk)
+
+    
