@@ -19,8 +19,7 @@ try:
     index, metadata = load_faiss_index()
 except FileNotFoundError:
     st.warning("Index not found. Building index now...")
-    build_faiss_index("Generate synthetic dataset")
-    index, metadata = load_faiss_index()
+    index, metadata = None, None
     
 st.markdown("### Define your dataset schema")
 num_columns = st.number_input("Number of columns", min_value=1, max_value=20, value=3)
@@ -39,8 +38,9 @@ if st.button("Generate Dataset"):
         st.error("Please provide all column names and descriptions.")
     else:
         try:
-            with st.spinner("Loading FAISS index..."):
-                index, metadata = load_faiss_index()
+            if index is None or metadata is None:
+                with st.spinner("Building FAISS index..."):
+                    index, metadata = build_faiss_index(columns_input)
 
             with st.spinner("Parsing user input..."):
                 user_query = user_input_parser(columns_input)
