@@ -1,12 +1,12 @@
 import streamlit as st
 from utils.synthetic_content_generator import data_generator_llm
 from utils.authenticate_apikey import authenticate
-from utils.build_index import build_faiss_index
+from utils.load_index import load_faiss_index
 from utils.retriever import retrieve_chunks
+from utils.user_input_parser import user_input_parser
+import pandas as pd
 
 st.set_page_config(page_title="DataSynth", layout="centered")
-
-retriever = build_index()
 
 if not authenticate():
     st.stop()
@@ -14,7 +14,9 @@ if not authenticate():
 st.title("DataSynth")
 st.subheader("Creates synthetic datasets in seconds")
 
+st.markdown("### Define your dataset schema")
 num_columns = st.number_input("Number of columns", min_value=1, max_value=20, value=3)
+
 columns = []
 for i in range(num_columns):
     col_name = st.text_input(f"Column {i+1} Name", key=f"name_{i}")
