@@ -1,10 +1,9 @@
 from io import StringIO
 import os
 import pandas as pd
-from typing import List, Dict
+from typing import List
 import google.generativeai as genai
 from dotenv import load_dotenv
-from .user_input_parser import user_input_parser
 
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
@@ -14,7 +13,10 @@ def data_generator_llm(
         num_rows: int
 ) -> pd.DataFrame:
     
-    parsed_columns, num_rows = user_input_parser(columns, num_rows)
+    if not columns or not all(isinstance(c, str) for c in columns):
+        raise ValueError("Columns must be a non-empty list of strings.")
+    if not isinstance(num_rows, int) or num_rows <= 0:
+        raise ValueError("num_rows must be a positive integer.")
     
     col_descriptions = "\n".join(
         [f"{col['name']}: {col['type_hint'] or 'string'}" for col in parsed_columns]
