@@ -31,7 +31,7 @@ try:
     index, metadata = load_faiss_index()
 except FileNotFoundError:
     st.warning("Index not found. Building index now...")
-    index, metadata = build_faiss_index(columns_input, num_rows)
+    index, metadata = build_faiss_index()
 
 if st.button("Generate Dataset"):
     if not columns_input:
