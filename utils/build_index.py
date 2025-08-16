@@ -11,7 +11,7 @@ data_dir = 'data'
 index_file = Path("/faiss/faiss_index.index")
 metadata_file = Path("/faiss/metadata.pkl")
 
-def build_faiss_index(columns_input: List[str]):
+def build_faiss_index():
     docs = []
     id_to_text = {}
     idx = 0
