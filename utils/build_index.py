@@ -4,19 +4,18 @@ from .user_input_parser import user_input_parser
 import faiss
 import pickle
 from pathlib import Path
-from typing import List
+from typing import List, Dict
 
 index_file = Path("faiss_index.index")
 metadata_file = Path("metadata.pkl")
 
-def build_faiss_index(user_input: str) -> None:
-
-    parsed_data = user_input_parser(user_input)
-    columns = parsed_data["columns"]
+def build_faiss_index(columns_input: List[Dict[str, str]]):
 
     all_chunks: List[str] = []
-    for col in columns:
-        all_chunks.extend(chunk_text(col))
+    for col in columns_input:
+        col_text = f"{col['name']}: {col['description']}"
+        chunks = chunk_text(col_text)
+        all_chunks.extend(chunks)
 
     embeddings = get_embedding_array(all_chunks)
 
