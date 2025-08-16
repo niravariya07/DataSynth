@@ -16,7 +16,6 @@ def build_faiss_index(user_input: str) -> None:
 
     all_chunks: List[str] = []
     for col in columns:
-        chunk = chunk_text(col)
         all_chunks.extend(chunk_text(col))
 
     embeddings = get_embedding_array(all_chunks)
@@ -29,3 +28,5 @@ def build_faiss_index(user_input: str) -> None:
 
     with open(metadata_file, "wb") as f:
         pickle.dump(all_chunks, f)
+
+    return index, all_chunks
