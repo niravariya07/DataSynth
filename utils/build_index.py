@@ -1,4 +1,5 @@
 import os
+import numpy as np
 from .embedder import get_embedding_array, get_embedding
 from .chunks import chunk_text
 import faiss
