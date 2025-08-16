@@ -1,11 +1,16 @@
 import numpy as np
-from typing import Dict, List, Tuple
+from typing import List, Tuple, Union
 from .embedder import get_embedding
 from .load_index import load_faiss_index
-from .user_input_parser import user_input_parser
 
-def retrieve_chunks(user_input: Dict, top_k: int = 3) -> List[Tuple[str, float]]:
-    query = user_input_parser(user_input)
+def retrieve_chunks(user_input: Union[str, List[str]], top_k: int = 3) -> List[Tuple[str, float]]:
+    if isinstance(user_input, list):
+        query = " ".join(user_input)
+    elif isinstance(user_input, str):
+        query = user_input
+    else:
+        raise TypeError("user_input must be a string or list of strings.")
+
     
     index, id_to_text = load_faiss_index()
 
