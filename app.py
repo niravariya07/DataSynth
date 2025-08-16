@@ -1,11 +1,11 @@
 import streamlit as st
+import pandas as pd
 from utils.synthetic_content_generator import data_generator_llm
 from utils.authenticate_apikey import authenticate
 from utils.load_index import load_faiss_index
 from utils.retriever import retrieve_chunks
 from utils.build_index import build_faiss_index
-from utils.user_input_parser import user_input_parser
-import pandas as pd
+
 
 st.set_page_config(page_title="DataSynth", layout="centered")
 
@@ -40,16 +40,13 @@ if st.button("Generate Dataset"):
         try:
             if index is None or metadata is None:
                 with st.spinner("Building FAISS index..."):
-                    index, metadata = build_faiss_index(columns_input)
-
-            with st.spinner("Parsing user input..."):
-                user_query = user_input_parser(columns_input, num_rows)
+                    index, metadata = build_faiss_index(columns_input, num_rows)
             
             with st.spinner("Retrieving relevant context..."):
-                context_chunks = retrieve_chunks(index, metadata, user_query)
+                context_chunks = retrieve_chunks(index, metadata, columns_input)
             
             with st.spinner("Generating synthetic dataset..."):
-                df = data_generator_llm(columns_input, num_rows, context_chunks)
+                df = data_generator_llm(columns_input, num_rows)
                 
                 st.success("Dataset generated successfully!")
                 st.dataframe(df)
