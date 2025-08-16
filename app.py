@@ -3,6 +3,7 @@ from utils.synthetic_content_generator import data_generator_llm
 from utils.authenticate_apikey import authenticate
 from utils.load_index import load_faiss_index
 from utils.retriever import retrieve_chunks
+from utils.build_index import build_faiss_index
 from utils.user_input_parser import user_input_parser
 import pandas as pd
 
@@ -18,8 +19,7 @@ try:
     index, metadata = load_faiss_index()
 except FileNotFoundError:
     st.warning("Index not found. Building index now...")
-    from utils.build_index import build_index
-    index, metadata = build_index()
+    index, metadata = build_faiss_index()
     
 st.markdown("### Define your dataset schema")
 num_columns = st.number_input("Number of columns", min_value=1, max_value=20, value=3)
