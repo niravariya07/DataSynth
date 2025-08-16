@@ -19,7 +19,7 @@ def data_generator_llm(
         raise ValueError("num_rows must be a positive integer.")
     
     col_descriptions = "\n".join(
-        [f"{col['name']}: {col['type_hint'] or 'string'}" for col in parsed_columns]
+        [f"{col['name']}: {col['type_hint'] or 'string'}" for col in columns]
     )
 
     prompt = f"""You are a data generator. Create a synthetic dataset with {num_rows} rows and the following columns:
