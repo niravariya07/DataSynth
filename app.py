@@ -14,6 +14,13 @@ if not authenticate():
 st.title("DataSynth")
 st.subheader("Creates synthetic datasets in seconds")
 
+try:
+    index, metadata = load_faiss_index()
+except FileNotFoundError:
+    st.warning("Index not found. Building index now...")
+    from utils.build_index import build_index
+    index, metadata = build_index()
+    
 st.markdown("### Define your dataset schema")
 num_columns = st.number_input("Number of columns", min_value=1, max_value=20, value=3)
 
@@ -53,7 +60,7 @@ if st.button("Generate Dataset"):
                     file_name="synthetic_dataset.csv",
                     mime="text/csv",
                 )
-        except Exception as e:
-            st.error(f"Index not found. Please build the index first.: ({str(e)})")
+        # except Exception as e:
+        #     st.error(f"Index not found. Please build the index first.: ({str(e)})")
         except Exception as e:
             st.error(f"Unexpected error: {str(e)}")
