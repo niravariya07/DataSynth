@@ -19,7 +19,8 @@ try:
     index, metadata = load_faiss_index()
 except FileNotFoundError:
     st.warning("Index not found. Building index now...")
-    index, metadata = build_faiss_index()
+    build_faiss_index("Generate synthetic dataset")
+    index, metadata = load_faiss_index()
     
 st.markdown("### Define your dataset schema")
 num_columns = st.number_input("Number of columns", min_value=1, max_value=20, value=3)
