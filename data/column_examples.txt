@@ -1,0 +1,9 @@
+CustomerID: Unique identifier for a customer
+FirstName: Customer's first name
+LastName: Customer's last name
+Email: Customer email address
+Age: Age of the person in years
+SignupDate: Date the customer joined
+ProductName: Name of the purchased product
+Price: Price of the product in USD
+Quantity: Number of items purchased
