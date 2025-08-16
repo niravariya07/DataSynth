@@ -1,0 +1,4 @@
+OrderID, CustomerID, ProductName, Quantity, Price
+EmployeeID, FirstName, LastName, Department, Salary
+StudentID, Name, Age, Grade, EnrollmentDate
+TransactionID, UserID, Amount, TransactionDate, PaymentMethod
