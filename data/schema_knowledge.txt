@@ -1,0 +1,7 @@
+IDs should be unique integers starting from 1
+Names can be random human names
+Dates should follow YYYY-MM-DD format
+Prices should be numeric values with two decimal places
+Emails should contain @ and valid domains
+Boolean columns can be True or False
+Categorical columns should repeat from a predefined set
