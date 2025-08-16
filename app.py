@@ -14,12 +14,6 @@ if not authenticate():
 
 st.title("DataSynth")
 st.subheader("Creates synthetic datasets in seconds")
-
-try:
-    index, metadata = load_faiss_index()
-except FileNotFoundError:
-    st.warning("Index not found. Building index now...")
-    index, metadata = None, None
     
 st.markdown("### Define your dataset schema")
 num_columns = st.number_input("Number of columns", min_value=1, max_value=20, value=3)
@@ -33,6 +27,12 @@ for i in range(num_columns):
 
 num_rows = st.number_input("Number of rows", min_value=1, max_value=1000, value=10)
 
+try:
+    index, metadata = load_faiss_index()
+except FileNotFoundError:
+    st.warning("Index not found. Building index now...")
+    index, metadata = build_faiss_index(columns_input, num_rows)
+
 if st.button("Generate Dataset"):
     if not columns_input:
         st.error("Please provide all column names and descriptions.")
@@ -43,7 +43,7 @@ if st.button("Generate Dataset"):
                     index, metadata = build_faiss_index(columns_input)
 
             with st.spinner("Parsing user input..."):
-                user_query = user_input_parser(columns_input)
+                user_query = user_input_parser(columns_input, num_rows)
             
             with st.spinner("Retrieving relevant context..."):
                 context_chunks = retrieve_chunks(index, metadata, user_query)
