@@ -9,14 +9,14 @@ from typing import List, Dict
 index_file = Path("faiss_index.index")
 metadata_file = Path("metadata.pkl")
 
-def build_faiss_index(columns_input: List[Dict[str, str]]):
+def build_faiss_index(columns_input: list, raw_row_count: int =10):
+    parsed_data = user_input_parser(columns_input, raw_row_count)
+    columns = parsed_data["columns"]
 
     all_chunks: List[str] = []
-    for col in columns_input:
-        col_text = f"{col['name']}: {col['description']}"
-        chunks = chunk_text(col_text)
-        all_chunks.extend(chunks)
-
+    for col in columns:
+        all_chunks.extend(chunk_text(col["name"]))
+        all_chunks.extend(chunk_text(col["description"]))
     embeddings = get_embedding_array(all_chunks)
 
     dim = embeddings.shape[1]
