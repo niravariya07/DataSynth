@@ -32,7 +32,7 @@ def build_faiss_index():
     index = faiss.IndexFlatL2(embeddings.shape[1])
     index.add(embeddings)
 
-    faiss.write_index(index, index_file)
+    faiss.write_index(index, str(index_file))
     with open(metadata_file, "wb") as f:
         pickle.dump(id_to_text, f)
 
