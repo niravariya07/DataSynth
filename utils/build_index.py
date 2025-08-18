@@ -5,7 +5,6 @@ from .chunks import chunk_text
 import faiss
 import pickle
 from pathlib import Path
-from typing import List, Dict
 
 data_dir = 'data'
 index_file = Path("/faiss/faiss_index.index")
