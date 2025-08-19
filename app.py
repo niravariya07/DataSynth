@@ -47,7 +47,6 @@ if st.button("Generate Dataset"):
                 [f"{col['name']}: {col['description']}" for col in columns_input]
             )
 
-            # Retrieve relevant chunks
             with st.spinner("Retrieving relevant context..."):
                 context_chunks = retrieve_chunks(col_descriptions, top_k=3)
 
