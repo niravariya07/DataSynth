@@ -7,8 +7,11 @@ import pickle
 from pathlib import Path
 
 data_dir = 'data'
-index_file = Path("/faiss/faiss_index.index")
-metadata_file = Path("/faiss/metadata.pkl")
+index_dir = Path("faiss")
+index_dir.mkdir(parents=True, exist_ok=True)
+
+index_file = index_dir / "faiss_index.index"
+metadata_file = index_dir / "metadata.pkl"
 
 def build_faiss_index():
     docs = []
@@ -24,6 +27,8 @@ def build_faiss_index():
                     docs.append(chunk)
                     id_to_text[idx] = chunk
                     idx += 1
+    if not docs:
+            raise ValueError("⚠️ No documents found in 'data/' to build FAISS index.")
 
     embeddings = [get_embedding(doc) for doc in docs]
     embeddings = np.array(embeddings).astype("float32")
