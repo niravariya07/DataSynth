@@ -1,5 +1,4 @@
 import numpy as np
-from typing import List, Tuple, Union
 from .embedder import get_embedding
 from .load_index import load_faiss_index
 
