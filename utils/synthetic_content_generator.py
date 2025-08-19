@@ -7,18 +7,10 @@ from dotenv import load_dotenv
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-def data_generator_llm(
-        columns: List[str],
-        num_rows: int
-) -> pd.DataFrame:
-    
-    if not columns or not all(isinstance(c, str) for c in columns):
-        raise ValueError("Columns must be a non-empty list of strings.")
-    if not isinstance(num_rows, int) or num_rows <= 0:
-        raise ValueError("num_rows must be a positive integer.")
+def data_generator_llm(columns, num_rows):
     
     col_descriptions = "\n".join(
-        [f"{col['name']}: {col['type_hint'] or 'string'}" for col in columns]
+        [f"{col['name']}: {col['description']}" for col in columns]
     )
 
     prompt = f"""You are a data generator. Create a synthetic dataset with {num_rows} rows and the following columns:
