@@ -1,10 +1,10 @@
 import streamlit as st
 import pandas as pd
-from utils.synthetic_content_generator import data_generator_llm
-from utils.authenticate_apikey import authenticate
-from utils.load_index import load_faiss_index
-from utils.retriever import retrieve_chunks
-from utils.build_index import build_faiss_index
+from .utils.synthetic_content_generator import data_generator_llm
+from .utils.authenticate_apikey import authenticate
+from .utils.load_index import load_faiss_index
+from .utils.retriever import retrieve_chunks
+from .utils.build_index import build_faiss_index
 
 
 st.set_page_config(page_title="DataSynth", layout="centered")
