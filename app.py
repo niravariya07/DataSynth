@@ -41,15 +41,13 @@ if st.button("Generate Dataset"):
             if index is None or metadata is None:
                 with st.spinner("Building FAISS index..."):
                     index, metadata = build_faiss_index()
-            
-                col_descriptions = "\n".join(
-                    [f"{col['name']}: {col['description']}" for col in columns_input])
+
 
                 with st.spinner("Retrieving relevant context..."):
-                    context_chunks = retrieve_chunks(col_descriptions, top_k=3)
+                    context_chunks = retrieve_chunks(columns_input, top_k=3)
 
                 with st.spinner("Generating synthetic dataset..."):
-                    df = data_generator_llm(col_descriptions, num_rows)
+                    df = data_generator_llm(columns_input, num_rows)
     
                 st.success("Dataset generated successfully!")
                 st.dataframe(df)
