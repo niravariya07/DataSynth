@@ -11,7 +11,6 @@ def data_generator_llm(columns, num_rows):
     
     col_descriptions = ", ".join([
     f"{col.get('name', '')}: {col.get('description', 'string')}"
-    if isinstance(col, dict) else str(col)
     for col in columns])
 
     prompt = f"""You are a data generator. Create a synthetic dataset with {num_rows} rows and the following columns:
