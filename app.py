@@ -43,7 +43,6 @@ if st.button("Generate Dataset"):
                 with st.spinner("Building FAISS index..."):
                     index, metadata = build_faiss_index()
 
-            # Prepare descriptions
             col_descriptions = "\n".join(
                 [f"{col['name']}: {col['description']}" for col in columns_input]
             )
