@@ -26,13 +26,3 @@ def data_generator_llm(columns, num_rows):
     df = pd.read_csv(StringIO(csv_output))
 
     return df
-
-
-if __name__ == "__main__":
-    cols = [
-        {"name": "Name", "type_hint": "string"},
-        {"name": "Age", "type_hint": "integer"},
-        {"name": "Salary", "type_hint": "float"}
-    ]
-    df = data_generator_llm(cols, 5)
-    print(df.head())
