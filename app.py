@@ -25,7 +25,7 @@ for i in range(num_columns):
     if col_name and col_desc:
         columns_input.append({"name": col_name, "description": col_desc})
 
-num_rows = st.number_input("Number of rows", min_value=1, max_value=200, value=10)
+num_rows = st.number_input("Number of rows", min_value=1, max_value=1000, value=10)
 
 try:
     index, metadata = load_faiss_index()
