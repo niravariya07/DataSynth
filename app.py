@@ -23,7 +23,6 @@ for i in range(num_columns):
     col_name = st.text_input(f"Column {i+1} Name", key=f"name_{i}")
     col_desc = st.text_input(f"Column {i+1} Description", key=f"desc_{i}")
     if col_name and col_desc:
-        # No type hinting, just store description as free text
         columns_input.append({"name": col_name, "description": col_desc})
 
 num_rows = st.number_input("Number of rows", min_value=1, max_value=1000, value=10)
@@ -43,12 +42,15 @@ if st.button("Generate Dataset"):
                 with st.spinner("Building FAISS index..."):
                     index, metadata = build_faiss_index()
             
-            with st.spinner("Retrieving relevant context..."):
-                context_chunks = retrieve_chunks(columns_input, top_k=3)
-            
-            with st.spinner("Generating synthetic dataset..."):
-                df = data_generator_llm(columns_input, num_rows)
-                
+                col_descriptions = "\n".join(
+                    [f"{col['name']}: {col['description']}" for col in columns_input])
+
+                with st.spinner("Retrieving relevant context..."):
+                    context_chunks = retrieve_chunks(col_descriptions, top_k=3)
+
+                with st.spinner("Generating synthetic dataset..."):
+                    df = data_generator_llm(col_descriptions, num_rows)
+    
                 st.success("Dataset generated successfully!")
                 st.dataframe(df)
 
