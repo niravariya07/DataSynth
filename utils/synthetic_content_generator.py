@@ -10,7 +10,7 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 def data_generator_llm(columns, num_rows):
     
     col_descriptions = ", ".join([
-    f"{col.get('name', '')}: {col.get('type_hint', 'string')}"
+    f"{col.get('name', '')}: {col.get('description', 'string')}"
     if isinstance(col, dict) else str(col)
     for col in columns])
 
