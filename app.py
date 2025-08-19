@@ -60,7 +60,7 @@ if st.button("Generate Dataset"):
         except Exception as e:
             st.error(f"Unexpected error: {str(e)}")
 
-# Display and download if available
+
 if "df" in st.session_state:
     st.dataframe(st.session_state["df"])
     csv = st.session_state["df"].to_csv(index=False).encode("utf-8")
