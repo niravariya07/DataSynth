@@ -2,7 +2,7 @@ import numpy as np
 from .embedder import get_embedding
 from .load_index import load_faiss_index
 
-def retrieve_chunks(user_input: Union[str, List[str]], top_k: int = 3) -> List[Tuple[str, float]]:
+def retrieve_chunks(user_input, top_k=3):
     if isinstance(user_input, list):
         query = " ".join(user_input)
     elif isinstance(user_input, str):
