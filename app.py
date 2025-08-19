@@ -33,36 +33,7 @@ except FileNotFoundError:
     st.warning("Index not found. Building index now...")
     index, metadata = build_faiss_index()
 
-# if st.button("Generate Dataset"):
-#     if not columns_input:
-#         st.error("Please provide all column names and descriptions.")
-#     else:
-#         try:
-#             if index is None or metadata is None:
-#                 with st.spinner("Building FAISS index..."):
-#                     index, metadata = build_faiss_index()
-            
-#                 col_descriptions = "\n".join(
-#                     [f"{col['name']}: {col['description']}" for col in columns_input])
-
-#                 with st.spinner("Retrieving relevant context..."):
-#                     context_chunks = retrieve_chunks(col_descriptions, top_k=3)
-
-#                 with st.spinner("Generating synthetic dataset..."):
-#                     df = data_generator_llm(columns_input, num_rows)
     
-#                 st.success("Dataset generated successfully!")
-#                 st.dataframe(df)
-
-#                 csv = df.to_csv(index=False).encode("utf-8")
-#                 st.download_button(
-#                     label="Download CSV",
-#                     data=csv,
-#                     file_name="synthetic_dataset.csv",
-#                     mime="text/csv",
-#                 )
-#         except Exception as e:
-#             st.error(f"Unexpected error: {str(e)}")
 if st.button("Generate Dataset"):
     if not columns_input:
         st.error("Please provide all column names and descriptions.")
