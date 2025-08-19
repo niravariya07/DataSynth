@@ -23,6 +23,7 @@ for i in range(num_columns):
     col_name = st.text_input(f"Column {i+1} Name", key=f"name_{i}")
     col_desc = st.text_input(f"Column {i+1} Description", key=f"desc_{i}")
     if col_name and col_desc:
+        # No type hinting, just store description as free text
         columns_input.append({"name": col_name, "description": col_desc})
 
 num_rows = st.number_input("Number of rows", min_value=1, max_value=1000, value=10)
@@ -58,7 +59,5 @@ if st.button("Generate Dataset"):
                     file_name="synthetic_dataset.csv",
                     mime="text/csv",
                 )
-        # except Exception as e:
-        #     st.error(f"Index not found. Please build the index first.: ({str(e)})")
         except Exception as e:
             st.error(f"Unexpected error: {str(e)}")
