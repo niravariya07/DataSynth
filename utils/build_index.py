@@ -24,9 +24,10 @@ def build_faiss_index():
                 text = f.read()
                 chunks = chunk_text(text)
                 for chunk in chunks:
-                    docs.append(chunk)
-                    id_to_text[idx] = chunk
-                    idx += 1
+                    if isinstance(chunk, str):    
+                        docs.append(chunk)
+                        id_to_text[idx] = chunk
+                        idx += 1
     if not docs:
             raise ValueError("⚠️ No documents found in 'data/' to build FAISS index.")
 
