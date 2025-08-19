@@ -33,13 +33,12 @@ except FileNotFoundError:
     st.warning("Index not found. Building index now...")
     index, metadata = build_faiss_index()
 
-    
+
 if st.button("Generate Dataset"):
     if not columns_input:
         st.error("Please provide all column names and descriptions.")
     else:
         try:
-            # Ensure FAISS index is loaded
             if index is None or metadata is None:
                 with st.spinner("Building FAISS index..."):
                     index, metadata = build_faiss_index()
