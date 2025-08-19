@@ -53,7 +53,6 @@ if st.button("Generate Dataset"):
             with st.spinner("Generating synthetic dataset..."):
                 df = data_generator_llm(columns_input, num_rows)
 
-            # Store in session_state so it persists after rerun
             st.session_state["df"] = df
 
             st.success("Dataset generated successfully!")
