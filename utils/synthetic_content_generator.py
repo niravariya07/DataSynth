@@ -9,9 +9,10 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 def data_generator_llm(columns, num_rows):
     
-    col_descriptions = "\n".join(
-        [f"{col['name']}: {col['description']}" for col in columns]
-    )
+    col_descriptions = "\n".join([
+    f"{str(col.get('name', ''))}: {str(col.get('type_hint', 'string'))}"
+    if isinstance(col, dict) else str(col)
+    for col in columns])
 
     prompt = f"""You are a data generator. Create a synthetic dataset with {num_rows} rows and the following columns:
     {col_descriptions}
