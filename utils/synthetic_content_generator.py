@@ -1,7 +1,6 @@
 from io import StringIO
 import os
 import pandas as pd
-from typing import List
 import google.generativeai as genai
 from dotenv import load_dotenv
 
