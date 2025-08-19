@@ -50,7 +50,6 @@ if st.button("Generate Dataset"):
             with st.spinner("Retrieving relevant context..."):
                 context_chunks = retrieve_chunks(col_descriptions, top_k=3)
 
-            # Generate synthetic dataset
             with st.spinner("Generating synthetic dataset..."):
                 df = data_generator_llm(columns_input, num_rows)
 
