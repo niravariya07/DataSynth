@@ -42,12 +42,11 @@ DataSynth can go beyond plain data generation - by retrieving relevant context f
     │ ├── embedder.py # Embedding generation (SentenceTransformers)
     │ ├── build_index.py # Creates FAISS index from RAG documents
     │ ├── retriever.py # Retrieves context from stored embeddings
-    │ ├── generator.py # Dataset generation logic
+    │ ├── load_index.py # Load the build faiss index for using it for retrieval search 
     │ ├── user_input_parser.py # Parses and validates user inputs
     │ ├── synthetic_content_generator.py # Calls Gemini API to generate data
     │ ├── chunks.py # Splits docs into chunks for embedding
-    │
-    ├── auth.py # Handles API key authentication & usage limits
+    │ ├── authenticate_apikey.py # Handles API key authentication & usage limits
     ├── app.py # Main Streamlit application
     ├── requirements.txt # Python dependencies
     ├── README.md # Documentation
