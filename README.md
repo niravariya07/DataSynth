@@ -44,7 +44,6 @@ DataSynth can go beyond plain data generation - by retrieving relevant context f
     │ ├── retriever.py # Retrieves context from stored embeddings
     │ ├── build_index.py # Creates FAISS index from RAG documents
     │ ├── load_index.py # Load the build faiss index for using it for retrieval search 
-    │ ├── user_input_parser.py # Parses and validates user inputs
     │ ├── synthetic_content_generator.py # Calls Gemini API to generate data
     │ ├── authenticate_apikey.py # Handles API key authentication & usage limits
     ├── app.py # Main Streamlit application
