@@ -73,3 +73,7 @@ DataSynth can go beyond plain data generation - by retrieving relevant context f
 ## Demo Screenshots
 
 ![Demo Screenshot](data/png1.png)
+
+![Demo Screenshot](data/png2.png)
+
+![Demo Screenshot](data/png3.png)
