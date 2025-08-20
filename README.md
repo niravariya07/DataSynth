@@ -70,4 +70,6 @@ DataSynth can go beyond plain data generation - by retrieving relevant context f
 4. **Download**  
    - User can instantly download the generated dataset.  
 
+## Demo Screenshots
+
 ![Demo Screenshot](data/png1.png)
