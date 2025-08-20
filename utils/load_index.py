@@ -4,7 +4,7 @@ import faiss
 
 def load_faiss_index():
     if not index_file.exists() or not metadata_file.exists():
-        raise FileNotFoundError("FaISS index or metadat file not found. Please the index first.")
+        raise FileNotFoundError("FaISS index or metadata file not found. Please the index first.")
     
     index = faiss.read_index(str(index_file))
     with open(metadata_file, "rb") as f:
